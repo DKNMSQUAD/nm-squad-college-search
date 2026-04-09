@@ -1,5 +1,22 @@
 import { useState } from "react";
 
+const Field = ({ label, value, onChange, type = "text", placeholder }) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+    <label style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--muted)" }}>
+      {label} <span style={{ color: "var(--accent)" }}>*</span>
+    </label>
+    <input
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      style={{ padding: "10px 12px", border: "1px solid var(--border)", background: "var(--bg)", color: "var(--ink)", fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, outline: "none", width: "100%", boxSizing: "border-box" }}
+      onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
+      onBlur={(e)  => (e.target.style.borderColor = "var(--border)")}
+    />
+  </div>
+);
+
 export default function PaywallModal({ college, price, onSuccess, onClose }) {
   const [step, setStep]       = useState("form"); // form | paying | success | error
   const [customer, setCustomer] = useState({ name: "", school: "", email: "", phone: "" });
@@ -111,22 +128,7 @@ export default function PaywallModal({ college, price, onSuccess, onClose }) {
     }
   };
 
-  const Field = ({ label, k, type = "text", placeholder }) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-      <label style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 9, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--muted)" }}>
-        {label} <span style={{ color: "var(--accent)" }}>*</span>
-      </label>
-      <input
-        type={type}
-        value={customer[k]}
-        onChange={set(k)}
-        placeholder={placeholder}
-        style={{ padding: "10px 12px", border: "1px solid var(--border)", background: "var(--bg)", color: "var(--ink)", fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, outline: "none", width: "100%", boxSizing: "border-box" }}
-        onFocus={(e) => (e.target.style.borderColor = "var(--accent)")}
-        onBlur={(e)  => (e.target.style.borderColor = "var(--border)")}
-      />
-    </div>
-  );
+
 
   return (
     <>
@@ -189,10 +191,10 @@ export default function PaywallModal({ college, price, onSuccess, onClose }) {
           {(step === "form" || step === "error") && (
             <>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <Field label="Full Name"            k="name"   placeholder="Your full name" />
-                <Field label="School / Organisation" k="school" placeholder="School, college or company" />
-                <Field label="Email Address"         k="email"  type="email" placeholder="Report will be delivered here" />
-                <Field label="Phone Number"          k="phone"  type="tel"   placeholder="+91 or international" />
+                <Field label="Full Name" value={customer.name} onChange={(e) => setCustomer(p => ({...p, name: e.target.value}))} placeholder="Your full name" />
+                <Field label="School / Organisation" value={customer.school} onChange={(e) => setCustomer(p => ({...p, school: e.target.value}))} placeholder="School, college or company" />
+                <Field label="Email Address" value={customer.email} onChange={(e) => setCustomer(p => ({...p, email: e.target.value}))} type="email" placeholder="Report will be delivered here" />
+                <Field label="Phone Number" value={customer.phone} onChange={(e) => setCustomer(p => ({...p, phone: e.target.value}))} type="tel" placeholder="+91 or international" />
               </div>
 
               {errMsg && (
