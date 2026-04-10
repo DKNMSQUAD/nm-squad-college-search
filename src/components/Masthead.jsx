@@ -15,9 +15,9 @@ const Masthead = ({ colleges }) => {
         </div>
         <div style={{ flexShrink: 0, textAlign: "right", display: "flex", flexDirection: "column", gap: 5 }}>
           {[
-            { val: countryCount + " Countries", color: "#9F978C" },
+            { val: "9 Regions", color: "#9F978C" },
             { val: collegeCount + " Colleges",  color: "#9F978C" },
-            { val: "1,000s Courses",             color: "#9F978C" },
+            { val: "1,000s Of Courses",             color: "#9F978C" },
             { val: "Counselor Neeraj Mandhana",  color: "#9F978C" },
           ].map(({ val, color }) => (
             <div key={val} style={{ fontSize: 10, color, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'IBM Plex Mono', monospace", fontWeight: 600 }}>{val}</div>

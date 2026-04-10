@@ -17,7 +17,7 @@ export const MAJOR_COLS = [
   { col: "Med",    label: "Medicine" },
   { col: "Music",  label: "Music" },
   { col: "Psy",    label: "Psychology" },
-  { col: "PCBM",   label: "Pre-Med (PCBM)" },
+  { col: "PCBM",   label: "PCBM" },
 ];
 
 export const MAJOR_LABELS = MAJOR_COLS.map((m) => m.label);

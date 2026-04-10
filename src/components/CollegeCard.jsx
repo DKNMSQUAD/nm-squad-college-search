@@ -62,7 +62,7 @@ const CollegeCard = ({ college, hasPurchased, isShortlisted, onViewReport, onTog
               View Report
             </button>
           ) : (
-            <span style={{ fontSize: 9, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Report coming soon</span>
+            <span></span>
           )}
         </div>
       </div>
