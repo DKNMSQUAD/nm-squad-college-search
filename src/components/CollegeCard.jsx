@@ -52,14 +52,14 @@ const CollegeCard = ({ college, hasPurchased, isShortlisted, onViewReport, onTog
           >
             {isShortlisted ? "\u2665 Shortlisted" : "\u2661 Shortlist"}
           </button>
-          {hasReport ? (
+          {hasReport && unlocked ? (
             <button
               onClick={() => onViewReport(college)}
               style={{ padding: "5px 14px", background: "var(--ink)", color: "var(--bg)", fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, letterSpacing: "0.08em", textTransform: "uppercase", border: "none", cursor: "pointer", transition: "background 0.12s" }}
               onMouseEnter={(e) => (e.currentTarget.style.background = "var(--accent)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "var(--ink)")}
             >
-              {unlocked ? "View Report" : "Preview Report"}
+              View Report
             </button>
           ) : (
             <span style={{ fontSize: 9, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Report coming soon</span>
