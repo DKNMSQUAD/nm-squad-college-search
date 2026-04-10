@@ -4,6 +4,7 @@ import FiltersBar  from "./components/FiltersBar";
 import CollegeGrid from "./components/CollegeGrid";
 import ReportModal from "./components/ReportModal";
 import { useGoogleSheet } from "./hooks/useGoogleSheet";
+import { InstallPrompt } from "./InstallPrompt";
 import { usePurchases }   from "./hooks/usePurchases";
 
 const SHORTLIST_KEY = "nm_squad_shortlist";
@@ -128,6 +129,7 @@ function App() {
         <span>{colleges.length} colleges</span>
       </footer>
 
+      <InstallPrompt />
       {selected && (
         <ReportModal college={selected} hasPurchased={hasPurchased} onPurchase={addPurchase} onClose={() => setSelected(null)} />
       )}
