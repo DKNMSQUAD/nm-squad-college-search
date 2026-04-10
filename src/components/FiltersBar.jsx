@@ -30,7 +30,7 @@ const FilterRow = ({ label, open, onToggle, children, activeCount }) => (
     <button
       onClick={onToggle}
       style={{
-        width: "100%", padding: "10px 48px",
+        width: "100%", padding: "10px var(--px, 16px)",
         display: "flex", alignItems: "center", gap: 10,
         background: "none", border: "none", cursor: "pointer",
         fontFamily: "'IBM Plex Mono', monospace",
@@ -49,7 +49,7 @@ const FilterRow = ({ label, open, onToggle, children, activeCount }) => (
       </span>
     </button>
     {open && (
-      <div style={{ padding: "0 48px 14px", display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div style={{ padding: "0 var(--px, 16px) 14px", display: "flex", flexWrap: "wrap", gap: 6 }}>
         {children}
       </div>
     )}
@@ -78,7 +78,7 @@ const FiltersBar = ({ search, setSearch, filters, setFilters }) => {
     <div style={{ background: "var(--paper)", borderBottom: "2px solid var(--border)", position: "sticky", top: 0, zIndex: 90 }}>
       {/* Search row */}
       {setSearch !== undefined && (
-        <div style={{ padding: "12px 48px", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ padding: "12px var(--px, 16px)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ position: "relative", flex: 1, maxWidth: 420 }}>
             <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--muted)", pointerEvents: "none" }}>&#x2315;</span>
             <input
@@ -97,7 +97,7 @@ const FiltersBar = ({ search, setSearch, filters, setFilters }) => {
         </div>
       )}
       {!setSearch && hasActive && (
-        <div style={{ padding: "8px 48px", borderBottom: "1px solid var(--border)", display: "flex", justifyContent: "flex-end" }}>
+        <div style={{ padding: "8px var(--px, 16px)", borderBottom: "1px solid var(--border)", display: "flex", justifyContent: "flex-end" }}>
           <button onClick={clearAll} style={{ padding: "5px 14px", fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase", border: "1px solid var(--accent)", color: "var(--accent)", background: "transparent", cursor: "pointer" }}>
             Clear Filters
           </button>

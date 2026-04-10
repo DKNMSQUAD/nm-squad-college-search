@@ -88,7 +88,7 @@ function App() {
       <Masthead colleges={colleges} />
 
       {/* Tab bar */}
-      <div style={{ display: "flex", borderBottom: "2px solid var(--border)", background: "var(--paper)", padding: "0 48px", position: "sticky", top: 0, zIndex: 100 }}>
+      <div className="app-tabbar" style={{ display: "flex", borderBottom: "2px solid var(--border)", background: "var(--paper)", position: "sticky", top: 0, zIndex: 100 }}>
         <Tab id="all"       label="All Colleges" count={filtered.length}   />
         <Tab id="shortlist" label="Shortlisted"  count={shortlist.length} />
       </div>
@@ -123,7 +123,7 @@ function App() {
         </>
       )}
 
-      <footer style={{ padding: "28px 48px", borderTop: "1px solid var(--border)", marginTop: 48, display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 10, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+      <footer className="app-footer" style={{ borderTop: "1px solid var(--border)", marginTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 10, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
         <span>College Search by NM Squad</span>
         <span>{colleges.length} colleges</span>
       </footer>
