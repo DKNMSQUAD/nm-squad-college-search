@@ -9,16 +9,16 @@ const Masthead = ({ colleges }) => {
           <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(26px, 3.2vw, 46px)", fontWeight: 900, lineHeight: 1, letterSpacing: "-1.5px" }}>
             College Search
           </div>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(20px, 2.4vw, 36px)", fontWeight: 700, fontStyle: "italic", color: "var(--accent)", lineHeight: 1.1, letterSpacing: "-0.5px" }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(20px, 2.4vw, 36px)", fontWeight: 700, fontStyle: "italic", color: "#9F978C", lineHeight: 1.1, letterSpacing: "-0.5px" }}>
             By NM Squad
           </div>
         </div>
         <div style={{ flexShrink: 0, textAlign: "right", display: "flex", flexDirection: "column", gap: 5 }}>
           {[
-            { val: countryCount + " Countries", color: "var(--accent2)" },
-            { val: collegeCount + " Colleges",  color: "var(--accent)" },
-            { val: "1,000s Courses",             color: "var(--accent3)" },
-            { val: "Counselor Neeraj Mandhana",  color: "#8e44ad" },
+            { val: countryCount + " Countries", color: "#9F978C" },
+            { val: collegeCount + " Colleges",  color: "#9F978C" },
+            { val: "1,000s Courses",             color: "#9F978C" },
+            { val: "Counselor Neeraj Mandhana",  color: "#9F978C" },
           ].map(({ val, color }) => (
             <div key={val} style={{ fontSize: 10, color, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'IBM Plex Mono', monospace", fontWeight: 600 }}>{val}</div>
           ))}
