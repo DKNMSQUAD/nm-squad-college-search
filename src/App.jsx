@@ -4,6 +4,8 @@ import FiltersBar  from "./components/FiltersBar";
 import CollegeGrid from "./components/CollegeGrid";
 import ReportModal from "./components/ReportModal";
 import { useGoogleSheet } from "./hooks/useGoogleSheet";
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfUse from './components/TermsOfUse';
 import { InstallPrompt } from "./InstallPrompt";
 import { usePurchases }   from "./hooks/usePurchases";
 
@@ -18,7 +20,9 @@ function App() {
   const [search,    setSearch]    = useState("");
   const [filters,   setFilters]   = useState(EMPTY_FILTERS);
   const [slFilters, setSlFilters] = useState(EMPTY_FILTERS);
-  const [selected,  setSelected]  = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
   const [shortlist, setShortlist] = useState(() => {
     try { return JSON.parse(localStorage.getItem(SHORTLIST_KEY) || "[]"); }
     catch { return []; }
@@ -125,11 +129,16 @@ function App() {
       )}
 
       <footer className="app-footer" style={{ borderTop: "1px solid var(--border)", marginTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 10, color: "var(--muted)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-        <span>College Search by NM Squad</span>
-        <span>{colleges.length} colleges</span>
+        <span>&copy; 2026 NM Squad &mdash; Neeraj Mandhana. All rights reserved.</span>
+        <div style={{display:'flex',gap:16,flexWrap:'wrap'}}>
+          <button onClick={()=>setShowPrivacy(true)} style={{background:'none',border:'none',color:'var(--muted)',fontFamily:"'IBM Plex Mono',monospace",fontSize:10,letterSpacing:'0.06em',textTransform:'uppercase',cursor:'pointer',padding:0,textDecoration:'underline'}}>Privacy Policy</button>
+          <button onClick={()=>setShowTerms(true)} style={{background:'none',border:'none',color:'var(--muted)',fontFamily:"'IBM Plex Mono',monospace",fontSize:10,letterSpacing:'0.06em',textTransform:'uppercase',cursor:'pointer',padding:0,textDecoration:'underline'}}>Terms of Use</button>
+        </div>
       </footer>
 
       <InstallPrompt />
+      {showPrivacy && <PrivacyPolicy onClose={()=>setShowPrivacy(false)} />}
+      {showTerms && <TermsOfUse onClose={()=>setShowTerms(false)} />}
       {selected && (
         <ReportModal college={selected} hasPurchased={hasPurchased} onPurchase={addPurchase} onClose={() => setSelected(null)} />
       )}
