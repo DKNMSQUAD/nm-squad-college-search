@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MAJOR_LABELS } from "../hooks/useGoogleSheet";
 
 const REGIONS    = ["USA", "UK", "India", "Asia", "Europe", "Canada", "Middle East", "Australia & NZ", "Rest of World"];
-const LOCATIONS  = ["Big City", "Smaller Town", "Countryside"];
+const LOCATIONS  = ["Big City", "Small City", "Countryside"];
 const SIZES      = ["Small", "Medium", "Large"];
 const CHANCES    = ["Selective", "Achievable"];
 const chanceColors = { Selective: "var(--reach)", Achievable: "var(--safe)" };
