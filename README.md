@@ -1,12 +1,12 @@
 # NM Squad — College Command Centre
 
 Editorial newspaper-style React dashboard for college research,
-with PDF report previews and a Stripe paywall.
+with PDF report previews and a Razorpay paywall.
 
 ## Stack
 - React + Vite
 - Firebase (Firestore + Auth structure ready)
-- Stripe Checkout (test mode with demo simulation)
+- Razorpay Checkout (loaded dynamically, INR payments)
 - IBM Plex Mono + Playfair Display (newspaper aesthetic)
 
 ## Quick Start
@@ -26,16 +26,14 @@ Open http://localhost:5173
 
 ## Demo Mode (no keys needed)
 - College data is hardcoded in src/data/colleges.js
-- Stripe simulates payment (2-second delay, then unlocks report)
 - Purchases persist in localStorage
 
 ## Adding Real Keys
 
-### Stripe
-1. Create account at stripe.com
-2. Copy test publishable key (pk_test_...)
-3. Add to .env as VITE_STRIPE_PUBLISHABLE_KEY
-4. Add a backend route to create real Checkout Sessions
+### Razorpay
+1. Create account at razorpay.com
+2. Backend must expose `/api/create-order` and `/api/verify-payment` routes
+3. Front-end loads checkout.razorpay.com script dynamically — no env key needed on the client
 
 ### Firebase
 1. Create project at console.firebase.google.com
@@ -52,13 +50,11 @@ src/
     CollegeGrid.jsx    Card grid layout
     CollegeCard.jsx    Individual college card
     ReportModal.jsx    PDF preview modal
-    PaywallModal.jsx   Stripe payment modal
+    PaywallModal.jsx   Razorpay payment modal
   data/
     colleges.js        Hardcoded college dataset (6 colleges)
   firebase/
     config.js          Firebase init (uses env vars)
-  stripe/
-    checkout.js        Stripe checkout helper
   hooks/
     usePurchases.js    Purchase state (localStorage backed)
   App.jsx

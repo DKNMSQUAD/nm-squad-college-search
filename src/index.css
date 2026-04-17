@@ -226,15 +226,6 @@ body {
 }
 .paywall-includes li::before { content: "92"; color: var(--accent3); }
 
-.stripe-note {
-  font-size: 9px;
-  color: var(--muted);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.4; }
